@@ -8,6 +8,13 @@ export default {
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        src:
+          '//typesquare.com/3/tsst/script/ja/typesquare.js?6042c0ab3bc044bba4e07737ac1e02e5',
+        charset: 'utf-8',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
