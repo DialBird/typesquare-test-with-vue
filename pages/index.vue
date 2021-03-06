@@ -22,6 +22,7 @@
 <script lang="ts">
 import gql from 'graphql-tag'
 import { defineComponent } from '@nuxtjs/composition-api'
+import { useQuery } from '@vue/apollo-composable'
 
 export default defineComponent({
   apollo: {
@@ -35,7 +36,15 @@ export default defineComponent({
     `,
   },
   setup() {
-    const hoge = 'asd'
+    const { result } = useQuery(gql`
+      query {
+        users {
+          email
+          name
+        }
+      }
+    `)
+    const hoge = result
     return { hoge }
   },
 })
