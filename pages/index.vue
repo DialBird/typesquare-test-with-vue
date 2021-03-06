@@ -9,14 +9,30 @@
         あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。<br />
         またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。
       </p>
+      <ul>
+        <li v-for="user in users" :key="user.name">
+          {{ `${user.name}: ${user.email}` }}
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import gql from 'graphql-tag'
 
-export default Vue.extend({})
+export default {
+  apollo: {
+    users: gql`
+      query {
+        users {
+          email
+          name
+        }
+      }
+    `,
+  },
+}
 </script>
 
 <style>
