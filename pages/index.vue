@@ -20,8 +20,9 @@
 
 <script lang="ts">
 import gql from 'graphql-tag'
+import { defineComponent, watch } from '@vue/composition-api'
 
-export default {
+export default defineComponent({
   apollo: {
     users: gql`
       query {
@@ -32,7 +33,7 @@ export default {
       }
     `,
   },
-}
+})
 </script>
 
 <style>
